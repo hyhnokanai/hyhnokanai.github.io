@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册表单</title>
+</head>
+<body>
+    <h1>注册表单</h1>
+    <form action="your-server-endpoint" method="POST" enctype="multipart/form-data">
+        <label for="nickname">昵称：</label>
+        <input type="text" id="nickname" name="nickname" required><br><br>
+        
+        <label for="password">密码：</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <label for="email">邮箱：</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="gender">性别：</label>
+        <input type="radio" id="male" name="gender" value="男">男
+        <input type="radio" id="female" name="gender" value="女">女<br><br>
+        
+        <label for="hobbies">爱好：</label>
+        <input type="checkbox" id="travel" name="hobbies" value="旅游">旅游
+        <input type="checkbox" id="photography" name="hobbies" value="摄影">摄影
+        <input type="checkbox" id="sports" name="hobbies" value="运动">运动<br><br>
+        
+        <label for="bio">个人简介：</label>
+        <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br><br>
+        
+        <label for="profile-picture">上传个人照片：</label>
+        <input type="file" id="profile-picture" name="profile-picture"><br><br>
+       
+        <form id="registration-form" action="your-server-endpoint" method="POST" enctype="multipart/form-data">  
+        <input type="submit" value="立即注册">
+    </form>
+
+    <div id="success-message" style="display: none;">
+        <p>注册成功！</p>
+    </div>
+    <a href="index.html">返回个人简历</a>
+
+    <script>
+        document.getElementById("registration-form").addEventListener("submit", function (event) {
+            event.preventDefault(); 
+            document.getElementById("success-message").style.display = "block";
+        });
+    </script>
+</body>
+</html>
