@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .poetry-menu {
+        display: none;
+        position: absolute;
+        background-color: #fefbfb;
+        box-shadow: 0px 8px 16px 0px rgba(116, 190, 251, 0.2);
+        z-index: 1;
+      }
+      .poetry-menu a {
+        color: rgb(9, 0, 0);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      .poetry-container:hover .poetry-menu {
+        display: block;
+      }
+      .poetry-column {
+        display: inline-block;
+        background-color: rgb(57, 214, 231); 
+        margin-right: 20px;
+        padding: 10px; 
+      }
+    </style>
+  </head>
+
+  </body>
+  <div class="poetry-column">
+    <div class="poetry-container">
+      <div>景物诗</div>
+      <div class="poetry-menu">
+        <a href="#">山园小梅·其一</a>
+        <a href="#">浣溪沙·髻子伤春慵更梳</a>
+        <a href="#">翦牡丹</a>
+        <a href="#">春山夜月</a>
+        <a href="#">酹江月·夜凉</a>
+        <a href="#">曲江对酒</a>
+        <a href="#">滕王阁序</a>
+        <a href="#">辋川别业</a>
+        <a href="#">滁州西涧</a>
+        <a href="#">宿骆氏亭寄怀崔雍崔衮</a>
+      </div>
+    </div>
+  </div>
+  <div class="poetry-column">
+    <div class="poetry-container">
+      <div>哲理诗</div>
+      </div class="poetry-menu">
+        <a href="#">临江仙·送钱穆父</a>
+        <a href="#">临江仙·寒柳</a>
+        <a href="#">史记·张仪列传</a>
+        <a href="#">和子由渑池怀旧</a>
+        <a href="#">古诗古九首·明月皎夜光</a>
+        <a href="#">庄子·内篇·大宗师</a>
+      </div>
+    </div>
+  </div>
+
+    <h1 class="title" id="1">景物诗</h1>
+    <p>疏影横斜水清浅，暗香浮动月黄昏。
+      —— 林逋《山园小梅·其一》</p>
+    <p>晚风庭院落梅初，淡云来往月疏疏。
+      —— 李清照《浣溪沙·髻子伤春慵更梳》</p>
+    <p>野绿连空，天青垂水，素色溶漾都净。柳径无人，堕絮飞无影。
+      —— 张先《翦牡丹》</p>
+    <p>掬水月在手，弄花香满衣。
+      —— 于良史《春山夜月》<p>
+    <p>一枕新凉宜客梦，飞入藕花深处。冰雪襟怀，琉璃世界，夜气清如许。
+      —— 黄升《酹江月·夜凉》<p>
+    <p>穿花蛱蝶深深见，点水蜻蜓款款飞。
+      ——唐·杜甫《曲江对酒》</p>
+    <p>落霞与孤鹜齐飞，秋水共长天一色。
+      ——唐·王勃《滕王阁序》</p>
+    <p>雨中草色绿堪染，水上桃花红欲然。
+      ——王维《辋川别业》</p>
+    <p>独怜幽草涧边生，上有黄鹂深树鸣。春潮带雨晚来急，野渡无人舟自横。
+      —— 韦应物《滁州西涧》<p>
+    <p>秋阴不散霜飞晚，留得枯荷听雨声。
+      ——李商隐《宿骆氏亭寄怀崔雍崔衮》</p>
+
+    <h1 class="title" id="2">哲理诗</h1>
+    <p>人生如逆旅，我亦是行人。
+       —— 苏轼《临江仙·送钱穆父》</p>
+    <p>最是繁丝摇落后，转教人忆春山。
+       —— 纳兰性德 《临江仙·寒柳》</p>
+    <p>众口铄金，积毁销骨。
+       ——《史记·张仪列传》 </p>
+    <p>人生到处知何似，应似飞鸿踏雪泥。
+       —— 苏轼《和子由渑池怀旧》</p>
+    <p>良无盘石固，虚名复何益？
+       ——《古诗古九首·明月皎夜光》</p>
+    <p>泉涸，鱼相与处于陆，相呴以湿，相濡以沫，不如相忘于江湖。
+       ——《庄子·内篇·大宗师》 </p>
+
+  <script>
+    var poetryContainers = document.querySelectorAll('.poetry-container');
+    poetryContainers.forEach(function (poetryContainer) {
+      poetryContainer.addEventListener('mouseover', function () {
+        poetryContainer.querySelector('.poetry-menu').style.display = 'block';
+      });
+      poetryContainer.addEventListener('mouseout', function () {
+        poetryContainer.querySelector('.poetry-menu').style.display = 'none';
+      });
+    });
+  </script>
+  </body>
+
+</html>
