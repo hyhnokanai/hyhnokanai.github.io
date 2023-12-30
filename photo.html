@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>img</title>
+    <style>
+        #buttons span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: gray;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #buttons span.on {
+            background-color: rgb(240, 122, 44);
+        }
+        .arrow {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: lightgray;
+            text-align: center;
+            line-height: 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="buttons"></div>
+    <div id="container"></div>
+    <script>
+        var images = [
+            "QQ图片20230926230243.jpg",
+            "QQ图片20230926230256.jpg",
+            "src=http __c-ssl.duitang.com_uploads_item_202003_01_20200301222639_rcvgs.thumb.1000_0.png&refer=http __c-ssl.duitang.webp",
+            "src=http __c-ssl.duitang.com_uploads_item_202003_10_20200310142017_hzsxa.thumb.1000_0.jpg&refer=http __c-ssl.duitang.webp",
+        ];
+        var currentIndex = 0;
+        var container = document.getElementById("container");
+        var buttons = document.getElementById("buttons"); 
+
+        function generateImageMenu() {
+            var list = document.createElement("div");
+            list.id = "list";
+            for (var i = 0; i < images.length; i++) {
+                var image = document.createElement("img");
+                image.src = images[i];
+                list.appendChild(image);
+            }
+            container.appendChild(list);
+        }
+
+        function switchImage(index) {
+            var list = document.getElementById("list");
+            var imgs = list.getElementsByTagName("img");
+            for (var i = 0; i < imgs.length; i++) {
+                if (i === index) {
+                    imgs[i].style.display = "block";
+                } else {
+                    imgs[i].style.display = "none";
+                }
+            }
+        }
+
+        function switchButton(index) {
+            var buttons = document.getElementById("buttons").getElementsByTagName("span"); // 修改获取元素方式
+            for (var i = 0; i < buttons.length; i++) {
+                if (i === index) {
+                    buttons[i].className = "on";
+                } else {
+                    buttons[i].className = "";
+                }
+            }
+        }
+
+        function autoSwitchImage() {
+            currentIndex++;
+            if (currentIndex >= images.length) {
+                currentIndex = 0;
+            }
+            switchImage(currentIndex);
+            switchButton(currentIndex);
+        }
+
+        function initEventHandlers() {
+            for (var i = 0; i < images.length; i++) {
+                var button = document.createElement("span");
+                button.setAttribute("index", i);
+                button.addEventListener("click", function () {
+                    currentIndex = parseInt(this.getAttribute("index"));
+                    switchImage(currentIndex);
+                    switchButton(currentIndex);
+                });
+                buttons.appendChild(button);
+            }
+            
+            setInterval(autoSwitchImage, 3000);
+        }
+
+        generateImageMenu();
+        switchImage(currentIndex);
+        switchButton(currentIndex);
+        initEventHandlers();
+    </script>
+</body>
+</html>
